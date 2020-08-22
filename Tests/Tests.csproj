@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\pyramide\pyramide.csproj" />
+      <ProjectReference Include="..\Pyramid\Pyramid.csproj" />
     </ItemGroup>
 
 </Project>

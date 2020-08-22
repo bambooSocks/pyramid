@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace pyramide
+namespace Pyramid
 {
     public class Program
     {
-        // Returns the number of nodes in a pyramide given the number of layers of the pyramide
+        // Returns the number of nodes in a pyramid given the number of layers of the pyramid
         // Throws exception if layers are less that 1
         public static int GetNumberOfNodes(int numOfLayers)
         {

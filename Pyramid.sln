@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyramide", "pyramide\pyramide.csproj", "{DF0D28AF-7C04-4BFD-ACFA-B46E952CCFC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyramid", "pyramid\pyramid.csproj", "{DF0D28AF-7C04-4BFD-ACFA-B46E952CCFC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D296F9B9-6227-4656-B1FA-EB0F059C0170}"
 EndProject

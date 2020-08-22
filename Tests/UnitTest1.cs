@@ -1,6 +1,6 @@
 using System;
 using NUnit.Framework;
-using pyramide;
+using Pyramid;
 
 namespace Tests
 {

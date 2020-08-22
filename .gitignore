@@ -1,9 +1,7 @@
 
-.idea/.idea.pyramide/
+Pyramid/obj/
 
-pyramide/obj/
-
-pyramide/bin/
+Pyramid/bin/
 
 Tests/obj/
 
@@ -11,6 +9,4 @@ Tests/bin/
 
 .DS_Store
 
-
-
-pyramide.sln.DotSettings.user
+.idea/

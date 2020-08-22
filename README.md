@@ -1,2 +1,2 @@
-# pyramide
-Pyramide challenge
+# Pyramid Challenge
+Pyramid Challenge
