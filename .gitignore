@@ -1,10 +1,16 @@
 
 .idea/.idea.pyramide/
 
-pyramide/bin/Debug/netcoreapp3.1/
+pyramide/obj/
 
-pyramide/obj/Debug/netcoreapp3.1/
+pyramide/bin/
+
+Tests/obj/
+
+Tests/bin/
 
 .DS_Store
 
-pyramide/obj/
+
+
+pyramide.sln.DotSettings.user
