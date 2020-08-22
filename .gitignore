@@ -1,0 +1,10 @@
+
+.idea/.idea.pyramide/
+
+pyramide/bin/Debug/netcoreapp3.1/
+
+pyramide/obj/Debug/netcoreapp3.1/
+
+.DS_Store
+
+pyramide/obj/
