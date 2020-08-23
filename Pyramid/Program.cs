@@ -112,19 +112,19 @@ namespace Pyramid
 
             var paths = FindAllValidPaths(0, adjList, valueList);
 
-            int idxOfMaxSumPath = 0;
+            List<int> result = new List<int>();
             int maxSum = 0;
-            for (int i = 0; i < paths.Count; i++)
+            foreach (var path in paths)
             {
-                int sum = paths[i].Sum();
+                int sum = path.Sum();
                 if (sum > maxSum)
                 {
                     maxSum = sum;
-                    idxOfMaxSumPath = i;
+                    result = path;
                 }
             }
 
-            return paths[idxOfMaxSumPath];
+            return result;
         }
 
         static void Main(string[] args)
