@@ -64,23 +64,22 @@ namespace Pyramid
             return output;
         }
 
+        // Returns a list of paths (path = list of values of nodes) 
         static List<List<int>> FindAllValidPaths(int node, List<List<int>> adjList, List<int> valueList)
         {
-            if (node < 0 || node >= adjList.Count())
-            {
+            if (node < 0 || node >= adjList.Count)
                 throw new Exception("The node is out of the range");
-            }
-            
+
             var output = new List<List<int>>();
 
+            // checking for being a leaf node
             if (adjList[node] == null)
             {
-                var singleList = new List<int>();
-                singleList.Add(valueList[node]);
-                output.Add(singleList);
+                output.Add( new List<int> { valueList[node] } );
                 return output;
             }
 
+            // investigate each child for potential paths
             foreach (var childIdx in adjList[node])
             {
                 // checking for opposite parity of parent and child 
@@ -90,8 +89,7 @@ namespace Pyramid
 
                     foreach (var path in subPaths)
                     {
-                        var partialPath = new List<int>();
-                        partialPath.Add(valueList[node]);
+                        var partialPath = new List<int> { valueList[node] };
                         partialPath.AddRange(path);
                         output.Add(partialPath);
                     }
@@ -101,30 +99,45 @@ namespace Pyramid
             return output;
         }
 
-        static void Main(string[] args)
+        // Returns a list representing the values of the nodes in the path with largest sum
+        static List<int> FindMaxSumPath(string pyramid)
         {
-            string fileContent = File.ReadAllText("../../../input.txt");
-            var lines = new List<string>(fileContent.Split('\n'));
-            int layers = lines.Count();
+            var lines = new List<string>(pyramid.Split('\n'));
+            int layers = lines.Count;
 
             var adjList = GenerateAdjacencyList(layers);
             var valueList = lines.SelectMany(x => x.Split())
-                                 .Select(x => int.Parse(x))
-                                 .ToList();
+                .Select(x => int.Parse(x))
+                .ToList();
 
             var paths = FindAllValidPaths(0, adjList, valueList);
-            
-            foreach (var inList in paths)
+
+            int idxOfMaxSumPath = 0;
+            int maxSum = 0;
+            for (int i = 0; i < paths.Count; i++)
             {
-                if (inList != null)
+                int sum = paths[i].Sum();
+                if (sum > maxSum)
                 {
-                    foreach (var num in inList)
-                    {
-                        Console.Write($"{num} ");
-                    }
-                    Console.WriteLine($" = {inList.Sum()}");
+                    maxSum = sum;
+                    idxOfMaxSumPath = i;
                 }
             }
+
+            return paths[idxOfMaxSumPath];
+        }
+
+        static void Main(string[] args)
+        {
+            string fileContent = File.ReadAllText("../../../input2.txt");
+            var maxSumPath = FindMaxSumPath(fileContent);
+            
+            Console.WriteLine($"Path with the largest sum of {maxSumPath.Sum()} in the pyramid is:");
+            foreach (var num in maxSumPath)
+            {
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine();
         }
         
     }
