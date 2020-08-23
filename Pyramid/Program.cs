@@ -39,7 +39,7 @@ namespace Pyramid
         // Example: if node 0 has two children 1 and 2 then returns a list with one element at index 0
         //          with two elements 1 and 2 and since nodes 1 and 2 are leaf nodes the list contains
         //          two elements at indecies 1 and 2 with reference to null
-        static List<List<int>> GenerateAdjacencyList(int numOfLayers)
+        public static List<List<int>> GenerateAdjacencyList(int numOfLayers)
         {
             int numberOfNodes = GetNumberOfNodes(numOfLayers);
             var output = new List<List<int>>();
@@ -65,7 +65,7 @@ namespace Pyramid
         }
 
         // Returns a list of paths (path = list of values of nodes) 
-        static List<List<int>> FindAllValidPaths(int node, List<List<int>> adjList, List<int> valueList)
+        public static List<List<int>> FindAllValidPaths(int node, List<List<int>> adjList, List<int> valueList)
         {
             if (node < 0 || node >= adjList.Count)
                 throw new Exception("The node is out of the range");
@@ -100,7 +100,7 @@ namespace Pyramid
         }
 
         // Returns a list representing the values of the nodes in the path with largest sum
-        static List<int> FindMaxSumPath(string pyramid)
+        public static List<int> FindMaxSumPath(string pyramid)
         {
             var lines = new List<string>(pyramid.Split('\n'));
             int layers = lines.Count;
