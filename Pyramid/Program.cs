@@ -11,20 +11,14 @@ namespace Pyramid
         // Throws exception if layers are less that 1
         public static int GetNumberOfNodes(int numOfLayers)
         {
-            if (numOfLayers == 1) 
-            {
-                return 1;
-            } 
-            else if (numOfLayers < 1)
-            {
+            if (numOfLayers < 1)
                 throw new Exception("Number of layers too low");
-            } 
-            else 
-            {
-                return numOfLayers + GetNumberOfNodes(numOfLayers - 1);
-            }
+            
+            return numOfLayers * (numOfLayers + 1) / 2;
         }
 
+        // Returns the Layer in the pyramid structure for a given node
+        // Throws exception if node is negative (as there are no nodes that are negative)
         public static int GetLayerFromNode(int node)
         {
             if (node < 0)
@@ -40,6 +34,11 @@ namespace Pyramid
             return testLayer;
         }
 
+        // Returns a list of lists with corresponding children for the node,
+        // if the node doesn't have a child the element is null
+        // Example: if node 0 has two children 1 and 2 then returns a list with one element at index 0
+        //          with two elements 1 and 2 and since nodes 1 and 2 are leaf nodes the list contains
+        //          two elements at indecies 1 and 2 with reference to null
         static List<List<int>> GenerateAdjacencyList(int numOfLayers)
         {
             int numberOfNodes = GetNumberOfNodes(numOfLayers);
@@ -49,6 +48,7 @@ namespace Pyramid
             {
                 var children = new List<int>();
                 int layer = GetLayerFromNode(node);
+                // check whether the node is not in the last layer (no children)
                 if (layer < numOfLayers)
                 {
                     children.Add(node + layer);     // formula for first child
@@ -68,7 +68,7 @@ namespace Pyramid
         {
             if (node < 0 || node >= adjList.Count())
             {
-                // TODO: crash or smth
+                throw new Exception("The node is out of the range");
             }
             
             var output = new List<List<int>>();

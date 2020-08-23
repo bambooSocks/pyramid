@@ -33,5 +33,33 @@ namespace Tests
             Assert.Throws(Is.TypeOf<Exception>().And.Message.EqualTo("Number of layers too low"),
                 delegate { Program.GetNumberOfNodes(numOfLayers); });
         }
+
+        [TestCase(0, 1)]
+        [TestCase(1, 2)]
+        [TestCase(2, 2)]
+        [TestCase(3, 3)]
+        [TestCase(5, 3)]
+        [TestCase(6, 4)]
+        [TestCase(9, 4)]
+        [TestCase(14, 5)]
+        [TestCase(20, 6)]
+        [TestCase(54, 10)]
+        [TestCase(119, 15)]
+        [TestCase(324, 25)]
+        public void GetLayerFromNode_Pass(int node, int expected)
+        {
+            Assert.AreEqual(expected, Program.GetLayerFromNode(node));
+        }
+
+        [TestCase(-1)]
+        [TestCase(-2)]
+        [TestCase(-5)]
+        [TestCase(-10)]
+        public void GetLayerFromNode_ThrowException(int node)
+        {
+            Assert.Throws(Is.TypeOf<Exception>().And.Message.EqualTo("Invalid node"),
+                delegate { Program.GetLayerFromNode(node); });
+        }
+        
     }
 }
