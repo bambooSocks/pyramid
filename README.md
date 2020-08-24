@@ -6,4 +6,4 @@ In the `Main` method of the `Program` class, there are four possible ways to loa
 The data structure of the graph was considered in form of objects, however this either complicates the graph creating process considerably or in other way causes much larger space complexity. In the end, an adjacency list has proven to be simpler approach when loading while it didn't add unnecesary space complexity.
 
 ### Testing
-The all functions of the program are tested using unit tests which are all inside the `Tests` project of the solution. These tests were written in order to act as regression tests.
+All the functions of the program are tested using unit tests which are all inside the `Tests` project of the solution. These tests were written in order to act as regression tests.
